@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture06\take.exe
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\refint\take.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture06\take.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\take.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture06\take.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lecture06\take.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture06\obj\Debug\net8.0\ref\take.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture06\take.pdb

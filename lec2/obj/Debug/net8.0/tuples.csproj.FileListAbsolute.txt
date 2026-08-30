@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\tuples.exe
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\refint\tuples.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.pdb
+c:\Users\김민욱\Desktop\dafny programs\lec2\tuples.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\tuples.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\tuples.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\tuples.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\ref\tuples.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\tuples.pdb

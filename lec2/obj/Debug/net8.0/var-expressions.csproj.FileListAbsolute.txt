@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\var-expressions.exe
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\refint\var-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.pdb
+c:\Users\김민욱\Desktop\dafny programs\lec2\var-expressions.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\var-expressions.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\var-expressions.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\var-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\ref\var-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\var-expressions.pdb

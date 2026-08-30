@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\boolean-expressions.exe
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\refint\boolean-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.pdb
+c:\Users\김민욱\Desktop\dafny programs\lec2\boolean-expressions.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\boolean-expressions.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\boolean-expressions.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\boolean-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\ref\boolean-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\boolean-expressions.pdb

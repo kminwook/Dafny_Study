@@ -1,0 +1,11 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\building-intlists.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\building-intlists.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\building-intlists.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\building-intlists.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\building-intlists.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\refint\building-intlists.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\building-intlists.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture04\building-intlists.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture04\building-intlists.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\ref\building-intlists.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\building-intlists.pdb

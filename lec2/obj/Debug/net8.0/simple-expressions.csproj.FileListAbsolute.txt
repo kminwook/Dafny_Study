@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\simple-expressions.exe
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\refint\simple-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.pdb
+c:\Users\김민욱\Desktop\dafny programs\lec2\simple-expressions.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\simple-expressions.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\simple-expressions.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\simple-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\ref\simple-expressions.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\simple-expressions.pdb

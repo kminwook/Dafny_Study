@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\refint\rainbow.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture03\rainbow.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture03\rainbow.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\ref\rainbow.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\rainbow.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture03\rainbow.exe
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\rainbow.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\rainbow.runtimeconfig.json

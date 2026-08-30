@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\dates.exe
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\refint\dates.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture03\dates.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\dates.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\dates.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lecture03\dates.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\ref\dates.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\dates.pdb

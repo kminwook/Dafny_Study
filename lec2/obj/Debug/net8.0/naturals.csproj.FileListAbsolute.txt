@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\naturals.exe
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\refint\naturals.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.pdb
+c:\Users\김민욱\Desktop\dafny programs\lec2\naturals.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\naturals.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\naturals.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\naturals.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\ref\naturals.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\naturals.pdb

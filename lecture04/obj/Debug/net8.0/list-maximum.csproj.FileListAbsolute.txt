@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\list-maximum.exe
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\refint\list-maximum.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture04\list-maximum.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\list-maximum.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\list-maximum.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lecture04\list-maximum.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\ref\list-maximum.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\list-maximum.pdb

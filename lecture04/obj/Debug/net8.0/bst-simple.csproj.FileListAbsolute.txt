@@ -1,0 +1,11 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\bst-simple.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\bst-simple.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\bst-simple.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\bst-simple.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\bst-simple.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\refint\bst-simple.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\bst-simple.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture04\bst-simple.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture04\bst-simple.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\obj\Debug\net8.0\ref\bst-simple.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture04\bst-simple.pdb

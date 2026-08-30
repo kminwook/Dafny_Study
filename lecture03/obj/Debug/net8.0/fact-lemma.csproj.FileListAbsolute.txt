@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\fact-lemma.exe
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\refint\fact-lemma.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.pdb
+c:\Users\김민욱\Desktop\dafny programs\lecture03\fact-lemma.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\fact-lemma.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lecture03\fact-lemma.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lecture03\fact-lemma.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\obj\Debug\net8.0\ref\fact-lemma.dll
+c:\Users\김민욱\Desktop\dafny programs\lecture03\fact-lemma.pdb

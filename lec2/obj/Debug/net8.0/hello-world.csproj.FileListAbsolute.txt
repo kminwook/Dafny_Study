@@ -1,0 +1,14 @@
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.AssemblyInfoInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.AssemblyInfo.cs
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.csproj.CoreCompileInputs.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\hello-world.exe
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\refint\hello-world.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.pdb
+c:\Users\김민욱\Desktop\dafny programs\lec2\hello-world.deps.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\hello-world.genruntimeconfig.cache
+c:\Users\김민욱\Desktop\dafny programs\lec2\hello-world.runtimeconfig.json
+c:\Users\김민욱\Desktop\dafny programs\lec2\hello-world.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\obj\Debug\net8.0\ref\hello-world.dll
+c:\Users\김민욱\Desktop\dafny programs\lec2\hello-world.pdb
