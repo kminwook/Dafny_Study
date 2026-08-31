@@ -11,3 +11,8 @@ lemma divides_transitive(m:nat, n:nat, p:nat)
   requires divides(m,n)
   requires divides(n,p)
   ensures divides(m,p)
+  {
+    var q1 :| q1 * m == n;
+    var q2 :| q2 * n == p;
+    assert p == q2 * q1 * m;
+  }

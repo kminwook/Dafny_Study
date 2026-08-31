@@ -25,7 +25,7 @@ lemma primeCheck_forall(t: nat, n:nat)
   requires 1 < n
   ensures 
     primeCheck(t,n) <==> 
-    forall u | 1 < u <= t :: !divides(u,n) 
+    forall u :: 1 < u <= t ==> !divides(u,n)
 {
   // assert forall u:nat :: 1 < u <= t ==> !divides(u,n);
 }

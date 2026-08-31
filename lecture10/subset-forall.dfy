@@ -66,11 +66,25 @@ lemma mem_reverse(x:int, A:lset)
 {
   match A case Nil=> {}
   case Cons(y,ys) => 
-  member_append(x,reverse(ys),Cons(y,Nil));
+    member_append(x,reverse(ys),Cons(y,Nil));
+
 }
 
 lemma reverse_subset(A:lset)
-  ensures subset(reverse(A), A) 
-  ensures subset(A, reverse(A))
+ensures subset(reverse(A),A)
+ensures subset(A,reverse(A))
 {
+  assert subset(reverse(A),A) by{
+    subset_forall(reverse(A),A);
+    // subset(reverse(A),A) <==> forall x :: memeber(x,reverse(A)) ==> member(x,A)
+    forall x | member(x,reverse(A)) ensures member(x,A){
+      mem_reverse(x,A);
+    }
+  }
+  assert subset(A,reverse(A)) by {
+    subset_forall(A,reverse(A));
+    forall x ensures member(x,A) ==> member(x,reverse(A)){
+      mem_reverse(x,A);
+    }
+  }
 }

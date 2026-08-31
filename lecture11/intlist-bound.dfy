@@ -6,8 +6,57 @@ predicate exceeds(i:int, l:list<int>) {
 }
 
 // will probably need an intermediate lemma
+function max(i:int, j:int) : int {if i < j then j else i}
+
+function maxList(l : list<int>) : int
+requires 0 < length(l)
+{
+  match l
+  case Cons(j,Nil) => j
+  case Cons(j,js) => max(j,maxList(js))
+}
+
+
+
+lemma maxList_exceeds(l : list<int>)
+requires 0 < length(l)
+ensures exceeds(maxList(l) + 1,l)
+{
+  match case Nil => {}
+  case Cons(j,Nil) => {}
+  case Cons(j,js) => {
+    assert(maxList(l) == max(j,maxList(js)));
+    assert exceeds(maxList(js)+1, js);
+    assert maxList(l) +1 > j;
+    /* maxList(js) + 1 >> js
+       maxList(l) == max(j,maxList(js))
+       maxList(l) + 1 > j && maxList(l) + 1 > maxList(js)
+       */
+    assert maxList(l) + 1>= maxList(js) +1;
+    // and also maxList(js) + 1 >> js
+    exceeds_ge(maxList(l) + 1, maxList(js) + 1, js);
+    assert exceeds(maxList(l) + 1 , js);
+    // maxList(l) + 1 >> js
+  }
+}
+
+// i >= j && j >= k ==> i>= k
+
+lemma exceeds_ge(i:int, j :int, l : list<int>)
+requires i >= j requires exceeds(j,l) // j >> l
+ensures exceeds(i,l) // i >> l
+{}
 
 lemma boundExists(l : list<int>)
   ensures exists m :: exceeds(m,l)
+  {
+    match l case Nil => {
+      assert exceeds(10,l);
+      }
+    case Cons(j,js) => {
+      maxList_exceeds(l);
+      assert exceeds(maxList(l) + 1,l);
+    }
+  }
 
 // flip quantifiers, prove something else
