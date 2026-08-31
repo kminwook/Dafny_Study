@@ -234,25 +234,39 @@ function collatzSteps(n: nat): nat
 **Q15.** 다음 lemma의 `ensures`를 완성하시오 — "임의의 자연수 x에 대해, x보다 항상 더 큰 자연수가 존재한다":
 */
 lemma noMaxNat()
-  ensures forall x: nat :: exists y: nat :: y > x{}
+  ensures forall x: nat :: exists y: nat :: y > x
 
 /*
 
-**Q16.** 아래는 Lecture10 `subset_forall`의 핵심 증명 스케치다. `subset(A,B) <==> forall x | member(x,A) :: member(x,B)` 를 증명할 때 두 방향 중 **어느 쪽이 더 어려운지**, 그리고 어려운 방향에서 왜 `var x0 :| ...` (witness 추출)이 필요한지 설명하시오.
+**Q16.** 아래는 Lecture10 `subset_forall`의 핵심 증명 스케치다. 
+`subset(A,B) <==> forall x | member(x,A) :: member(x,B)`
+ 를 증명할 때 두 방향 중 **어느 쪽이 더 어려운지**, 그리고 어려운 방향에서 왜 
+ `var x0 :| ...` (witness 추출)이 필요한지 설명하시오.
 
+*/
+/*
 **Q17.** 다음 프레디케이트가 주어졌을 때:
-```dafny
+다음을 증명하는 lemma를 작성하시오 (Lecture10의 `subset_forall`과 같은 스타일):
+
+
+
+(단, `member`는 위에서 정의한 것과 동일)
+*/
+function member(x : int, l : list<int>) : bool {
+  match l
+  case Nil => false
+  case Cons(y, ys) => x == y || member(x, ys)
+}
+
 predicate allPositive(l: list<int>) {
   match l case Nil => true case Cons(x,xs) => x > 0 && allPositive(xs)
 }
-```
-다음을 증명하는 lemma를 작성하시오 (Lecture10의 `subset_forall`과 같은 스타일):
-```dafny
+
 lemma allPositive_forall(l: list<int>)
   ensures allPositive(l) <==> forall x | member(x,l) :: x > 0
-```
-(단, `member`는 위에서 정의한 것과 동일)
+  
 
+/*
 **Q18.** `exists`가 있는 명제를 증명할 때, Dafny에게 **witness(증거)를 어떻게 알려주는지** 두 가지 방법(직접 값 주기 / `:|` 로 뽑아내기)을 예시와 함께 설명하시오.
 
 **Q19. (Lecture11 스타일)** 아래 lemma 두 개가 있다. 첫 번째가 참이라고 가정할 때 두 번째를 증명하시오 (forall instantiation 연습):

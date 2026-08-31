@@ -1,6 +1,4 @@
-include "core-list.dfy"
-
-
+include "../core-list.dfy"
 
 predicate all_distinct(A : lset) {
   match A case Nil => true

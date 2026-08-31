@@ -2,7 +2,8 @@ predicate q(x:int)
 predicate r(x:int){ true}
 
 lemma somename_arbitrary()
-  ensures forall x | 0 < x :: q(x){
+  ensures forall x | 0 < x :: q(x)
+  {
     forall x ensures 0 < x ==> q(x){
       if 0 < x{}
     }

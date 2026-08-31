@@ -1,10 +1,5 @@
 include "../core-list.dfy"
 
-predicate member(a : int, A : lset)
-{
-    match A case Nil => false
-    case Cons(x,xs) => a == x || member(a,xs)
-}
 
 predicate subset(A : lset, B : lset) 
 {
@@ -31,7 +26,7 @@ lemma subset_trans(A : lset, B : lset, C : lset)
       //assert member(h,B);
       //assert subset(t,B);
       // assert member(h,C) by 
-      {subset_member(h,B,C);}
+      subset_member(h,B,C);
       //assert subset(t,C);
       
     }
@@ -39,13 +34,15 @@ lemma subset_trans(A : lset, B : lset, C : lset)
 lemma append_assoc(X: lset, Y: lset, Z: lset)
   ensures append(append(X, Y), Z) == append(X, append(Y, Z))
 {}
+
+
 lemma subset_append(A:lset,B:lset)
 ensures subset(A,append(B,A))
 {
   match A case Nil =>{}
   case Cons(x,xs) =>{
     //assert member(x,append(B,A));
-    //assert subset(x,append(B,A));
+    //assert subset(xs,append(B,A));
    // assert subset(xs,append(append(B,Cons(x,Nil)),xs));
     //assert append(B,Cons(x,xs)) == append(append(B,Cons(x,Nil)),xs)
       append_assoc(B,Cons(x,Nil),xs);
@@ -54,30 +51,15 @@ ensures subset(A,append(B,A))
   }
 }
 
-
-
-lemma subset_even_bigger(x:int, y: int , ys:lset)
-ensures subset(ys,Cons(x,Cons(y,ys))){}
-
-lemma subset_bigger(x:int, xs:lset)
-ensures subset(xs,Cons(x,xs))
-{
-  match xs
-  case Nil => {}
-  case Cons(y,ys) =>{
-    assert member(y,Cons(x,Cons(y,ys)));
-    assert subset(ys,Cons(x,Cons(y, ys)));
-  }
-}
-
 /* A ⊆ A */
 lemma subset_refl(A : lset)
   ensures subset(A,A)
   {
     match A
-    case Nil =>
+    case Nil => {}
     case Cons(x,xs) =>{
-      assert subset(xs,Cons(x,xs));
+     subset_append(xs,Cons(x,Nil));
+     assert append(Cons(x,Nil),xs) == Cons(x,xs);
     }
   }
 

@@ -29,13 +29,14 @@ ensures exceeds(maxList(l) + 1,l)
  case Nil => {}
  case Cons(j,Nil) => {}
  case Cons(j,js) => {
+  //Cons(h,t) => i > h && exceeds(i,t)
   //maxList(l) + 1 >j && exceeds(maxList(js)+1,js);
   //max(j,maxList(js))+1 > j
-  assert maxList(l) == max(j,maxList(js));
-  assert maxList(l) + 1 > j;
-  assert exceeds(maxList(js)+1,js);
+  //assert maxList(l) == max(j,maxList(js));
+ // assert maxList(l) + 1 > j;
+  //assert exceeds(maxList(js)+1,js);
   exceeds_ge(maxList(l)+1,maxList(js)+1,js);
-  assert exceeds(maxList(l)+1,js);
+  //assert exceeds(maxList(l)+1,js);
  }
 }
 
@@ -52,8 +53,8 @@ lemma boundExists(l : list<int>)
     case Cons(j,js) => {
       boundExists(js);
       var n :| exceeds(n,js);
-      assert max(n,j)+1 > n;
-      assert max(n,j)+1 > j;
+      //assert max(n,j)+1 > n;
+      //assert max(n,j)+1 > j;
       exceeds_ge(max(n,j)+1,n,js);
       assert exceeds(max(n,j)+1,l);
     }

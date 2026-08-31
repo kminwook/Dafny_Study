@@ -3,12 +3,6 @@ include "../core-list.dfy"
 /* preliminaries: definitions of member, subset and reverse, 
    and a useful result about being a member of append (see 
    before when we were showing properties of union) */
-predicate member(x:int, A:lset)
-{
-    match A 
-    case Nil => false
-    case Cons(y,ys) => x == y || member(x,ys)
-}
 
 predicate subset(A: lset, B : lset)
 {
@@ -38,6 +32,7 @@ lemma subset_forall(A : lset, B : lset)
   if subset(A,B) { 
     // dafny automatically reproves our existing member_subset
   } else {
+    // exists x | member(x,A) && !member(x,B)
     /* A not a subset of B */
     match A case Nil => /* impossible */
     case Cons(x,xs) => {
@@ -64,6 +59,7 @@ lemma subset_refl(A:lset) ensures subset(A,A)
 lemma mem_reverse(x:int, A:lset)
   ensures member(x, reverse(A)) <==> member(x,A) 
 {
+  //member(x,(reverse(ys),Cons(y,Nil)))
   match A case Nil=> {}
   case Cons(y,ys) => 
     member_append(x,reverse(ys),Cons(y,Nil));

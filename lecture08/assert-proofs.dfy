@@ -29,6 +29,7 @@ lemma xltdiv(x:nat, y:nat, z:nat)
   requires 0 < z
   ensures x < y / z <==> (x + 1) * z <= y
 {
+
   assert y == (y/z) * z + y % z ;
 
 }

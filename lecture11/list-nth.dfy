@@ -1,9 +1,5 @@
 include "../core-list.dfy"
 
-function member(i : int, l : list<int>) : bool
-{
-    match l case Nil => false case Cons(h,t) => h == i || member(i,t)
-}
 
 function nth<T>(l : list<T>, n : nat) : T
   requires n < length(l)
