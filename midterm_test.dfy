@@ -157,20 +157,117 @@ ensures length(reverse(l)) == length(l)
 /*
 ## Part IV. 이진트리 / BST (Lab3 Part B)
 
-주어진 정의:
-```dafny
-datatype btree<V> = Lf | Node(k: int, value: V, left: btree, right: btree)
-function size<V>(t: btree<V>): nat { match t case Lf => 0 case Node(_,_,lt,rt) => 1+size(lt)+size(rt) }
-```
-
 **Q10.** `sumKeys(t: btree<int>): int` 함수를 작성하시오 (모든 노드의 key를 합산).
+*/
+datatype option<V> = None | Some(v : V)
+datatype btree<V> = Lf | Node(k: int, value: V, left: btree, right: btree)
+function size<V>(t: btree<V>): nat { 
+    match t case Lf => 0 case Node(_,_,lt,rt) => 1+size(lt)+size(rt) }
+function lookup<T>(key : int, t:btree<T>): option<T>{
+  match t
+  case Lf => None
+  case Node(k,v,lt,rt) =>
+    if k == key 
+    then Some(v)
+    else if key < k
+    then lookup(key,lt)
+    else lookup(key,rt)
+}
+function insert_tree<V>(key : int, value : V, t : btree<V>) : btree<V>{
+  match t
+  case Lf => Node(key, value, Lf, Lf)
+  case Node(k, v, lt, rt) =>
+    if k == key then Node(key, value, lt, rt)
+    else if key < k then Node(k, v, insert_tree(key, value, lt), rt) 
+    else Node(k, v, lt, insert_tree(key, value, rt))               
+}
 
-**Q11.** `contains_key(key: int, t: btree<V>): bool`을 (순서를 이용하지 않고 그냥 순회로) 작성하고, `insert_tree`가 주어졌다고 가정할 때 다음을 증명하시오:
-```dafny
-lemma lookup_insert<V>(k: int, value: V, t: btree<V>)
-  ensures lookup(k, insert_tree(k, value, t)) == Some(value)
-```
+function sumKeys(t:btree<int>) : int {
+    match t
+    case Lf => 0
+    case Node(k,v,lt,rt) => k + sumKeys(lt) + sumKeys(rt)
+}
+/*
+**Q11.** `contains_key(key: int, t: btree<V>): bool`을 (순서를 이용하지 않고 그냥 순회로) 작성하고, 
+`insert_tree`가 주어졌다고 가정할 때 다음을 증명하시오:
+
 (이건 Lab3에 있던 것과 동일 — 왜 `{}`만으로 증명되는지 설명하시오.)
+*/
+//function contains_key(key : int, t: btree<V>):bool{}
+lemma lookup_insert<V>(k: int, value: V, t: btree<V>)
+  ensures lookup(k, insert_tree(k, value, t)) == Some(value){}
 
-**Q12. (스트레치)** `insert_only_one` lemma (Lab3 Ex13)가 왜 빈 body로는 증명이 안 되는지 설명하고, 증명에 필요한 핵심 보조 정리(`member_append`)를 어디서/왜 호출해야 하는지 서술하시오.
+
+  
+/*
+**Q12. (스트레치)** `insert_only_one` 
+lemma (Lab3 Ex13)가 왜 빈 body로는 증명이 안 되는지 설명하고, 
+증명에 필요한 핵심 보조 정리(`member_append`)를 어디서/왜 호출해야 하는지 서술하시오.
+*/
+
+/*
+## Part V. Termination / decreases (Lecture 7, Lab3 Part C)
+
+**Q13.** 다음 함수가 termination 체크를 통과하도록 `decreases` 절을 추가하시오:
+*/
+function countDown(n: nat): list<nat>
+decreases n
+{
+  if n == 0 then Cons(0, Nil) else Cons(n, countDown(n-1))
+}
+/*
+**Q14.** 아래 `collatzSteps` 함수는 Dafny가 termination을 증명 못 한다 
+(실제로 정지성이 알려지지 않은 문제이기 때문). 왜 `decreases` 절을 붙일 수 없는지 한두 문장으로 설명하시오.
+```dafny
+function collatzSteps(n: nat): nat
+  requires n > 0
+{
+  if n == 1 then 0
+  else if n % 2 == 0 then 1 + collatzSteps(n / 2)
+  else 1 + collatzSteps(3*n + 1)
+}
+*/
+
+/*
+## Part VI. Quantifiers — forall/exists (Lecture 10~11) ⭐ 시험 자주 나오는 부분
+
+**Q15.** 다음 lemma의 `ensures`를 완성하시오 — "임의의 자연수 x에 대해, x보다 항상 더 큰 자연수가 존재한다":
+*/
+lemma noMaxNat()
+  ensures forall x: nat :: exists y: nat :: y > x{}
+
+/*
+
+**Q16.** 아래는 Lecture10 `subset_forall`의 핵심 증명 스케치다. `subset(A,B) <==> forall x | member(x,A) :: member(x,B)` 를 증명할 때 두 방향 중 **어느 쪽이 더 어려운지**, 그리고 어려운 방향에서 왜 `var x0 :| ...` (witness 추출)이 필요한지 설명하시오.
+
+**Q17.** 다음 프레디케이트가 주어졌을 때:
+```dafny
+predicate allPositive(l: list<int>) {
+  match l case Nil => true case Cons(x,xs) => x > 0 && allPositive(xs)
+}
+```
+다음을 증명하는 lemma를 작성하시오 (Lecture10의 `subset_forall`과 같은 스타일):
+```dafny
+lemma allPositive_forall(l: list<int>)
+  ensures allPositive(l) <==> forall x | member(x,l) :: x > 0
+```
+(단, `member`는 위에서 정의한 것과 동일)
+
+**Q18.** `exists`가 있는 명제를 증명할 때, Dafny에게 **witness(증거)를 어떻게 알려주는지** 두 가지 방법(직접 값 주기 / `:|` 로 뽑아내기)을 예시와 함께 설명하시오.
+
+**Q19. (Lecture11 스타일)** 아래 lemma 두 개가 있다. 첫 번째가 참이라고 가정할 때 두 번째를 증명하시오 (forall instantiation 연습):
+```dafny
+predicate q(x: int)
+predicate r(x: int)
+
+lemma given()
+  ensures forall x | 0 < x :: q(x)
+
+lemma useIt(y: nat)
+  requires forall x | 0 < x :: q(x)
+  ensures q(y + 1)
+{
+  // 여기 채우기
+}
+```
 */
