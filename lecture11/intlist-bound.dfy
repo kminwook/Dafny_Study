@@ -22,7 +22,7 @@ lemma maxList_exceeds(l : list<int>)
 requires 0 < length(l)
 ensures exceeds(maxList(l) + 1,l)
 {
-  match case Nil => {}
+  match l case Nil => {}
   case Cons(j,Nil) => {}
   case Cons(j,js) => {
     assert(maxList(l) == max(j,maxList(js)));
@@ -50,12 +50,16 @@ ensures exceeds(i,l) // i >> l
 lemma boundExists(l : list<int>)
   ensures exists m :: exceeds(m,l)
   {
-    match l case Nil => {
-      assert exceeds(10,l);
-      }
+    match l
+    case Nil => {assert exceeds(-3,l);}
+    case Cons(j,Nil) => {assert exceeds(j+1,l);}
     case Cons(j,js) => {
-      maxList_exceeds(l);
-      assert exceeds(maxList(l) + 1,l);
+      boundExists(js);
+      var m0 :| exceeds(m0,js);
+      assert max(m0,j) +1 >j;
+      assert max(m0,j) + 1 > m0;
+      exceeds_ge(max(m0,j)+1,m0,js);
+      assert exceeds(max(m0,j)+1,l);
     }
   }
 
