@@ -30,11 +30,29 @@ lemma reverse_append<T>(l1: list<T>, l2: list<T>)
   ensures reverse(append(l1,l2)) == append(reverse(l2),reverse(l1))
 {
   match l1
-  case Nil =>
+  case Nil => {
+    //assert append(Nil,l2) == l2;
+    //assert reverse(append(Nil,l2)) == reverse(l2);
+    //assert append(reverse(l2),reverse(Nil)) == append(reverse(l2),Nil);
     append_nil_right(reverse(l2));
-  case Cons(x, xs) =>
-    reverse_append(xs, l2);
-    append_assoc(reverse(l2), reverse(xs), Cons(x, Nil));
+    //assert reverse(l2) == append(reverse(l2),Nil);
+  }
+  case Cons(x, xs) =>{
+    assert append(Cons(x,xs),l2) == Cons(x,append(xs,l2));
+    assert reverse(Cons(x,append(xs,l2))) == append(reverse(append(xs,l2)),Cons(x,Nil));
+    //reverse_append(xs,l2);
+    assert reverse(append(xs,l2)) == append(reverse(l2),reverse(xs));
+    //위에걸  append(reverse(append(xs,l2)),Cons(x,Nil)) 에 대입하면 좌변이 나옴
+    //assert append(append(reverse(l2),reverse(xs)),Cons(x,Nil));
+    // right
+    assert reverse(Cons(x,xs)) == append(reverse(xs),Cons(x,Nil));
+    assert append(reverse(l2),reverse(Cons(x,xs))) == append(reverse(l2), append(reverse(xs), Cons(x,Nil)));
+    append_assoc(reverse(l2),reverse(xs),Cons(x,Nil));
+    assert append(append(reverse(l2), reverse(xs)), Cons(x,Nil)) 
+       == append(reverse(l2), append(reverse(xs), Cons(x,Nil))); 
+
+  }
+
 }
 
 

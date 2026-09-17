@@ -20,7 +20,9 @@ lemma {:induction false} length_reverse<T>(l:list<T>)
 {
   match l case Nil => {}
   case Cons(x,xs) => {
-    length_reverse(xs);
     length_append(reverse(xs),Cons(x,Nil));
+    //assert length(append(reverse(xs), Cons(x,Nil))) == length(reverse(xs)) + length(Cons(x,Nil)); 
+    length_reverse(xs);
+    //assert length(reverse(xs)) + length(Cons(x,Nil)) == length(xs) + 1;
   }
-}
+} 
