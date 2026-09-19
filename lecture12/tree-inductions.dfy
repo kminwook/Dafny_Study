@@ -100,23 +100,7 @@ lemma {:induction false} length_keys<V>(t:tree<V>)
     }
 }
 
-lemma {:induction false}keys_mirror<T>(t:tree<T>)
-ensures keys(mirror(t)) == reverse(keys(t))
-{
-    match t case Lf => {}
-    case Node(k,v,lt,rt) => {
-        keys_mirror(lt); keys_mirror(rt);
-        var k_l := keys(lt);
-        var k_r := keys(rt);
-        assert reverse(keys(t)) == append(reverse(Cons(k,k_r)),reverse(k_l))
-        by {
-            reverse_append(k_l,Cons(k, k_r));
-        }
-        append_assoc(reverse(k_r),Cons(k,Nil),reverse(k_l));
-    }
-}
 
-/*
 lemma keys_mirror<T>(t:tree<T>)
 ensures keys(mirror(t)) == reverse(keys(t))
 {
@@ -130,4 +114,3 @@ ensures keys(mirror(t)) == reverse(keys(t))
         append_assoc(reverse(k_r),Cons(k,Nil),reverse(k_l));
     }
 }
-*/

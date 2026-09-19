@@ -27,7 +27,7 @@ lemma maxA_thm(l:list<int>, A:int)
   // make the first parameter the one that is first in the 
   // definition of the recursive function and/or use the 
   // same decreases clause
-  ensures maxA(l,A) == ???
+  ensures maxA(l,A) == if l.Nil? then A else max(maxList(l),A)
 {
 }
 
@@ -35,4 +35,10 @@ lemma finishing_up(l : list<int>)
   requires l.Cons?
   ensures maxList(l) == maxList2(l)
 {
+  maxA_thm(l.tl,l.hd);
+  /*
+  assert (maxA(l.tl,l.hd) ==
+          match l.tl case Nil => l.hd
+          case Cons(j,js) => max(maxList(l.tl),l.hd));
+  */
 }
