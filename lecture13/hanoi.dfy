@@ -19,7 +19,6 @@ function hanoi2(n : nat, a : nat) : nat
 lemma hanoi12(n : nat)
   ensures hanoi1(n) == hanoi2(n, 0)
 
-
 // the accumulator moves in the recursive call, so pinning it at 0 leaves us
 // with a useless inductive hypothesis.  Let it vary instead, and guess the
 // relation from a few values (hanoi2(3,a) is 7, 15, 23, 31 for a = 0..3):
@@ -33,6 +32,12 @@ lemma hanoi_gen(n : nat, a : nat)
 lemma hanoi_gen2(n : nat)
   ensures forall a : nat :: hanoi2(n, a) == hanoi1(n) + a * (hanoi1(n) + 1)
 {}
+
+lemma hanoi_gen3(n:nat)
+ensures forall n : nat, a:nat :: hanoi2(n,a) == hanoi1(n) + a*(hanoi1(n)+1)
+{
+  
+}
 
 // and now the original falls out at a == 0
 

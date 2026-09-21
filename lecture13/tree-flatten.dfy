@@ -43,10 +43,16 @@ lemma keysA_keys<V>(t:tree<V>, acc:list<int>)
 {
     match t
       case Lf => { }
-      case Node(k, _, lt, rt) => {
-        // (keys(lt) ++ (k : keys(rt))) ++ acc
-        // keys(lt) ++ ((k : keys(rt))) ++ acc)
-        append_assoc(keys(lt), Cons(k, keys(rt)), acc);
+      case Node(k, v, lt, rt) => {
+        assert keysA(Node(k,v,lt,rt),acc) == keysA(lt,Cons(k,keysA(rt,acc))); 
+        assert append(keys(Node(k,v,lt,rt)), acc) == append(append(keys(lt),Cons(k,keys(rt))),acc);
+        assert keysA(lt,Cons(k,append(keys(rt),acc))) == append(keys(lt),Cons(k,append(keys(rt),acc)));
+        var a := keys(lt); var b := Cons(k,keys(rt)); var c := acc;
+        assert Cons(k,append(keys(rt),acc)) == append(Cons(k,keys(rt)),acc) == append(b,c);
+        assert append(a,Cons(k,append(keys(rt),acc))) == append(a,append(b,c));
+        assert append(append(keys(lt),Cons(k,keys(rt))),acc) == append(append(a,b),acc);
+        //assert append(a,append(b,c)) == append(append(a,b),c);
+        append_assoc(keys(lt),Cons(k,keys(rt)),acc);
       }
 }
 
@@ -54,6 +60,11 @@ lemma keysA_keys<V>(t:tree<V>, acc:list<int>)
 lemma keys2_keys<V>(t:tree<V>)
   ensures keys2(t) == keys(t)
 {
+  assert keys2(t) == keysA(t,Nil);
   keysA_keys(t,Nil);
+  //keysA(t,Nil) == append(keys(t),Nil);
+  //keys2(t) == append(keys(t),Nil)
+  //assert append(keys(t),Nil) == keys(t)
+  // assert append(a,Nil) == a;
   append_nil(keys(t)); 
 }
