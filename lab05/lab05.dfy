@@ -26,7 +26,13 @@ method absdiff(m : nat, n : nat) returns (r:nat)
   ensures m > n ==> r == m - n
   ensures n >= m ==> r == n - m
 {
-  
+  if m > n {
+    //r := m-n;
+    return m-n;
+  }else {
+    return n-m;
+    r := n-m;
+  }
 }
   
 // ******** Q2
@@ -48,6 +54,19 @@ method nthSquare(n:nat) returns (sq:nat)
   ensures sq == n * n
 {
 
+  //sq := n * n;
+var i := 0;
+  var a := 1;
+  sq := 0;
+  while i < n
+    invariant 0 <= i <= n
+    invariant sq == i * i
+    invariant a == 2 * i + 1
+  {
+    sq := sq + a;
+    a := a + 2;
+    i := i + 1;
+  }
 }
 
 // to run this you will have to give the loops in Q3 bodies, 
@@ -75,7 +94,10 @@ method f11_1a() returns (i:int)
 {
     i := 0;
     while i < 100
-      invariant 0 <= i
+      invariant 0 <= i && i <= 100
+      {
+        i := i + 1;
+      }
     assert i == 100;
 }
 
@@ -91,13 +113,19 @@ lemma f11_1a_counterexample_lemma()
 {
     // uncomment and insert counter-example value below for XXX
     // assert f11_1a_counter_example_pred(XXX);
+    assert f11_1a_counter_example_pred(101);
 }
 
 // Q3B
 method f11_1d() returns (i:int)
 {
     i := 22;
-    while i % 5 != 0 invariant 10 <= i <= 100
+    while i % 5 != 0 
+    invariant 22 <= i <= 55 && i % 11 == 0
+    decreases 100-i
+    {
+      i := i+11;
+    }
     assert i == 55;
 }
 
@@ -113,6 +141,7 @@ lemma f11_1d_counterexample_lemma()
 {
     // uncomment and insert counter-example value instead of XXX
     //assert f11_1d_counterexaple_pred(XXX);
+    assert f11_1d_counterexaple_pred(25);
 }
 
 // ******** Q4
@@ -132,6 +161,9 @@ method fibmd(n:nat) returns (r:nat)
 {
     var smaller, larger, counter := 1, 1, 0;
     while (counter < n) 
+      invariant 0 <= counter <= n
+      invariant smaller == fibfn(counter)
+      invariant larger == fibfn(counter+1)
       invariant true
     {
         smaller, larger := larger, smaller + larger;
