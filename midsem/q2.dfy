@@ -26,13 +26,13 @@ datatype medal_tally = MT(golds: nat, silvers:nat, bronzes:nat)
 
    1 mark
 */
-predicate mt_lt(mt1:medal_tally, mt2:medal_tally)
-{
-    mt1.golds < mt2.golds ||
-    (mt1.golds == mt2.golds && mt1.silvers < mt2.silvers) ||
-    (mt1.golds == mt2.golds && mt1.silvers == mt2.silvers &&
-     mt1.bronzes < mt2.bronzes)
+predicate mt_lt(mt1:medal_tally, mt2:medal_tally){
+   if mt2.golds > mt1.golds then true
+   else if mt2.silvers > mt1.silvers then true
+   else if mt2. bronzes > mt1.bronzes then true
+   else false
 }
+/* YOUR WORK GOES HERE */
 
 /* 2B.
 
@@ -44,7 +44,8 @@ predicate mt_lt(mt1:medal_tally, mt2:medal_tally)
    1 mark
 */
 lemma t3_2_10__lt__3_3_2()
-  ensures mt_lt(MT(3,2,10), MT(3,3,2)) {}
+ensures mt_lt(MT(3,2,10),MT(3,3,2)){}
+/* YOUR WORK GOES HERE */
 
 /* 2C.
 
@@ -54,28 +55,31 @@ lemma t3_2_10__lt__3_3_2()
    2 marks
 */
 lemma mt_lt_irreflexive(mt:medal_tally)
-  ensures !mt_lt(mt,mt) {}
+ensures !mt_lt(mt,mt){}
+/* YOUR WORK GOES HERE */
 
 /* 2D.
 
    State and prove the result that it is impossible for a pair
    of medal-tallies to both be less than each other.
 
-   2 marks.
+   2 marks
 */
 lemma mt_lt_antisym(mt1:medal_tally, mt2:medal_tally)
-  ensures !(mt_lt(mt1,mt2) && mt_lt(mt2,mt1)) 
-{}
+ensures mt_lt(mt1,mt2)
+/* YOUR WORK GOES HERE */
 
 /* 2E.
 
    State and prove that given a pair of tallies, mt1 and mt2,
    one must be less than the other, or they must be equal
 
-   2 marks.
+   2 marks
 */
-lemma ml_lt_trichotomous(mt1:medal_tally, mt2:medal_tally)
-  ensures mt_lt(mt1,mt2) || mt1 == mt2 || mt_lt(mt2,mt1) {}
+lemma mt_lt_trichotomous(mt1:medal_tally, mt2:medal_tally)
+ensures mt_lt(mt1,mt2) || mt_lt(mt2,mt1) || mt1 == mt2 {}
+
+/* YOUR WORK GOES HERE */
 
 /* 2F.
 
@@ -85,6 +89,21 @@ lemma ml_lt_trichotomous(mt1:medal_tally, mt2:medal_tally)
 
    2 marks
 */
-const smallest_tally : medal_tally := MT(0,0,0)
-lemma ml_lt_least(mt:medal_tally)
-  ensures mt_lt(smallest_tally, mt) || smallest_tally == mt {}
+
+lemma mt_lt_least(mt:medal_tally)
+
+/* YOUR WORK GOES HERE */
+
+/* use an auxiliary definition of this shape, if you wish: */
+
+// const smallest_tally : medal_tally := ???
+
+/* 
+To do so, uncomment the const-line above and fill in the 
+appropriate value, and then use that value in the lemma 
+statement.
+
+WARNING: if you uncomment the const-line, you must replace 
+??? with an actual value — leaving ??? in place will stop 
+the whole file from verifying
+*/

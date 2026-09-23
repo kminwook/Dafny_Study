@@ -64,6 +64,13 @@ lemma n_step3(c:traffic_light)
 lemma n_step3n(n:nat, c:traffic_light)
   ensures n_step(3 * n, c) == c 
 {
+   if n == 0 {}
+   else {
+      assert n_step(3*(n-1),c) == c;
+      n_step_sum(3*(n-1), 3 , c);
+      }
+   /*
   if n == 0 {}
   else { n_step_sum(3*(n-1), 3, c); }
+  */
 }

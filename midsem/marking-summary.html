@@ -1,0 +1,140 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COMP1600/COMP6260 Mid-Semester Exam — u8407470</title>
+<style>
+:root { color-scheme: light dark;
+  --ink:#141414; --dim:#5b5b57; --line:#d9d8d1; --bg:#fcfcfb; --card:#ffffff;
+  --up:#1b6b3a; --upbg:#e7f4ec; --warn:#8a5a00; --warnbg:#fdf3df; }
+@media (prefers-color-scheme: dark) { :root {
+  --ink:#f2f2ef; --dim:#a9a89f; --line:#35352f; --bg:#161614; --card:#1d1d1a;
+  --up:#7fd0a0; --upbg:#16301f; --warn:#e8b75a; --warnbg:#33280f; } }
+* { box-sizing:border-box; }
+body { margin:0; padding:24px 16px 64px; background:var(--bg); color:var(--ink);
+  font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+main { max-width:780px; margin:0 auto; }
+h1 { font-size:21px; margin:0 0 2px; }
+.sub { color:var(--dim); margin:0 0 20px; }
+.mark { display:flex; align-items:baseline; gap:10px; padding:14px 18px;
+  border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin-bottom:24px; }
+.mark b { font-size:30px; font-weight:650; }
+.mark span { color:var(--dim); }
+table { width:100%; border-collapse:collapse; margin:0 0 10px; }
+th,td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line);
+  vertical-align:top; }
+th { color:var(--dim); font-weight:600; font-size:13px; }
+td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.q { margin:22px 0 0; padding:0; }
+.q h2 { font-size:16px; margin:0 0 6px; display:flex; gap:10px;
+  align-items:baseline; flex-wrap:wrap; }
+.q h2 .score { color:var(--dim); font-weight:500; }
+.tag { font-size:12px; padding:2px 8px; border-radius:99px;
+  background:var(--upbg); color:var(--up); font-weight:600; }
+.note { background:var(--warnbg); color:var(--warn); border-radius:8px;
+  padding:9px 12px; margin:8px 0; font-size:14px; }
+.check { color:var(--dim); font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px; }
+.legend { margin-top:34px; border-top:1px solid var(--line); padding-top:18px; }
+.legend h2 { font-size:15px; margin:0 0 8px; }
+.legend dt { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px; margin-top:9px; }
+.legend dd { margin:2px 0 0; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:0.92em; }
+footer { margin-top:30px; color:var(--dim); font-size:14px; }
+@media print { body { background:#fff; } .mark,table { break-inside:avoid; } }
+</style></head><body><main>
+<h1>COMP1600/COMP6260 Mid-Semester Exam</h1>
+<p class="sub">u8407470 &middot; Minwook Kim &middot; COMP6260</p>
+<div class="mark"><b>22.00</b><span>out of 35</span><span style="margin-left:auto">raw total 33.25</span></div>
+<table><thead><tr><th>Question</th><th class="n">Mark</th><th></th></tr></thead><tbody>
+<tr><td>q1</td><td class="n">9</td><td></td></tr>
+<tr><td>q2</td><td class="n">5</td><td></td></tr>
+<tr><td>q3</td><td class="n">8</td><td></td></tr>
+<tr><td>q4</td><td class="n">7.25</td><td></td></tr>
+<tr><td>q5</td><td class="n">3</td><td></td></tr>
+<tr><td>q6-COMP6260-only</td><td class="n">1</td><td></td></tr>
+</tbody></table>
+<section class="q">
+<h2>q1 <span class="score">9</span></h2>
+<table><thead><tr><th>Check</th><th class="n">Awarded</th></tr></thead><tbody>
+<tr><td class="check">n_step3:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">n_step3n:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">n_step3n:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">n_step_lemma:markLemma</td><td class="n">2</td></tr>
+<tr><td class="check">n_step_sum:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">reds_next_colour:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">testitnc:markLemma</td><td class="n">1</td></tr>
+</tbody></table>
+</section>
+<section class="q">
+<h2>q2 <span class="score">5</span></h2>
+<table><thead><tr><th>Check</th><th class="n">Awarded</th></tr></thead><tbody>
+<tr><td class="check">mt_lt:markPredicate</td><td class="n">0</td></tr>
+<tr><td class="check">mt_lt_antisym:markSpec</td><td class="n">0</td></tr>
+<tr><td class="check">mt_lt_irreflexive:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">mt_lt_least:markSpec</td><td class="n">0</td></tr>
+<tr><td class="check">mt_lt_trichotomous:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">t3_2_10__lt__3_3_2:markSpec</td><td class="n">1</td></tr>
+</tbody></table>
+</section>
+<section class="q">
+<h2>q3 <span class="score">8</span></h2>
+<table><thead><tr><th>Check</th><th class="n">Awarded</th></tr></thead><tbody>
+<tr><td class="check">filterEvens_onAllEvensUnchanged:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">filterEvens_onNotAllEvensShorter:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">filterEvens_onNotAllEvensShorter:markSpec</td><td class="n">0</td></tr>
+<tr><td class="check">filterEvens_test1:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">filterEvens_test2:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">length_filterEvens:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">list24_isAllEven:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">listIsAllEven_test1:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">list_isAllEven_test2:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">test_filterEvens234:markSpec</td><td class="n">1</td></tr>
+</tbody></table>
+</section>
+<section class="q">
+<h2>q4 <span class="score">7.25</span></h2>
+<table><thead><tr><th>Check</th><th class="n">Awarded</th></tr></thead><tbody>
+<tr><td class="check">maxList:markRequires</td><td class="n">0</td></tr>
+<tr><td class="check">maxListA_test1:markLemma</td><td class="n">0.25</td></tr>
+<tr><td class="check">maxListA_test2:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">maxListA_test3:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">maxListA_test4:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">maxList_l123321:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">maxList_maximal:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">maxList_maximal:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">maxList_member:markSpec</td><td class="n">2</td></tr>
+<tr><td class="check">maxList_reverse:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">maxList_reverse:markSpec</td><td class="n">1.5</td></tr>
+</tbody></table>
+</section>
+<section class="q">
+<h2>q5 <span class="score">3</span></h2>
+<table><thead><tr><th>Check</th><th class="n">Awarded</th></tr></thead><tbody>
+<tr><td class="check">div3List_test1:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">div3List_test2:markLemma</td><td class="n">0.5</td></tr>
+<tr><td class="check">div3_123456:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">length_div3List:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">member_div3:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">member_div3:markSpec</td><td class="n">0</td></tr>
+<tr><td class="check">sumInThrees:markDecreases</td><td class="n">0</td></tr>
+</tbody></table>
+</section>
+<section class="q">
+<h2>q6-COMP6260-only <span class="score">1</span></h2>
+<table><thead><tr><th>Check</th><th class="n">Awarded</th></tr></thead><tbody>
+<tr><td class="check">divides_refl:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">divides_refl:markSpec</td><td class="n">1</td></tr>
+<tr><td class="check">divides_trans:markBody</td><td class="n">0</td></tr>
+<tr><td class="check">divides_trans:markSpec</td><td class="n">0</td></tr>
+</tbody></table>
+</section>
+<div class="legend"><h2>What the checks mean</h2><dl>
+<dt>markSpec</dt><dd>Your <code>requires</code> and <code>ensures</code> clauses were compared with the model's: your preconditions must be no stronger, your postconditions no weaker.</dd>
+<dt>markBody</dt><dd>Your body was checked against the model's signature and its requires/ensures/decreases clauses.</dd>
+<dt>markLemma</dt><dd>The model's lemma was checked against the definitions you wrote.</dd>
+<dt>markPredicate</dt><dd>Your definition was checked for equivalence with the model's.</dd>
+<dt>markDecreases</dt><dd>Your <code>decreases</code> clause was checked against the model's definition.</dd>
+</dl></div>
+<footer>Your submitted files are in this archive exactly as you left them. If you think a mark is wrong, reply quoting the question and the check name.</footer>
+</main></body></html>
