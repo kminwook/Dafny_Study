@@ -16,16 +16,19 @@ ensures exceed(i,j) == i + 1 || exceed(i,j) == j+1 {}
 
 method maxMethod(i:int, j:int) returns (mx:int)
 ensures mx == i || mx == j
-ensures mx >= i && mx <= j
+ensures mx >= i && mx >= j
+ensures mx == max(i,j)
 {
   mx := max(i,j);
 }
 
 // this doesn't work
+/*
 lemma maxMethod_lemma(i:int, j:int)
   ensures maxMethod(i,j) == max(i,j)
 {}
-
+레마 ensures 안에 method 는 못들어간다
+*/
 method exceedMethod(i:int, j:int) returns (exceeder:int)
 ensures exceeder > i && exceeder > j
 {

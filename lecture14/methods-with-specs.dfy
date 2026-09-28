@@ -4,7 +4,7 @@ method maxMinMethod(i : int, j : int) returns (mx : int, mn:int)
   ensures mn == min(i,j)
   // and what else?
 {
-    if i < j { mx := j; mn := i; }
+    if i < j { mx := j; mn := i; }  
     else { mx := i; mn := j; }
 }
 

@@ -24,12 +24,12 @@ method nine () {
     var j : int := 9;
     var i : int := 0;
     while i < 10
-      invariant true
+      invariant j == 9 - i
     {
         j := j - 1;
         i := i + 1;
     }
-    assert j == 1000000;
+    assert j == -1;
 }
 
 
@@ -41,6 +41,8 @@ method multiply_via_addition(m : nat, n:nat) returns (r:nat)
     var c := 0;
     r := 0;
     while c < n 
+      invariant c <= n
+      invariant r == m * c
     {
         r := r + m;
         c := c + 1;
@@ -56,6 +58,8 @@ method factM(n:nat) returns (r:nat)
   var c := 0;
   r := 1;
   while c < n 
+    invariant c <= n
+    invariant r == factorial(c)
   {
     c := c + 1;
     r := c * r;
@@ -78,7 +82,12 @@ method factM2(n:nat) returns (r:nat)
     r := 1;
     // this loop is deliberately INCOMPLETE; write more loop; write an
     // invariant and get it all to work
-    while 0 < c {
+    while 0 < c 
+      invariant 0 <= c
+      invariant r * factorial(c) == factorial(n)
+    {
+      r := r * c;
+      c := c - 1;
     }
 }
 
@@ -92,6 +101,8 @@ method exponentiate_via_multiplication(m:nat, n:nat) returns (r:nat)
     var c0 := 0;
     r := 1;
     while c0 < n 
+      invariant c0 <= n
+      invariant r  == exp(m,c0)
       {
         r := r * m;
         c0 := c0 + 1;
@@ -117,6 +128,7 @@ method sumList(l : list) returns (s:int)
     var tail := l;
     while tail != Nil
       decreases length(tail)
+      invariant s + sum(tail) == sum(l)
     {
         s := s + tail.elem; 
         tail := tail.next; 
@@ -149,8 +161,12 @@ method exp_done_smart(m:nat, n:nat) returns (r:nat)
     var b,e := m,n;
     r := 1;
     while 0 < e
+     invariant 0 <= e
+     invariant r * exp(b,e) == exp(m,n)
+     //invariant exp(b*b,e/2) == exp(b,e)
     {
         if e % 2 == 0 {
+          exp_basesquared(b,e/2);
           b := b * b;
           e := e / 2;
         } else {
