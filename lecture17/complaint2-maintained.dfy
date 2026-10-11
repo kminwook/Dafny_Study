@@ -14,7 +14,8 @@ method fibBroken(n0: nat) returns (f0: nat)
   f0 := 1;
   while (n < n0)
     invariant n <= n0
-    invariant f0 == ffn(n)  
+    invariant f0 == ffn(n)
+    invariant f1 == ffn(n+1)  
   {
     f0, f1, n    :=    f1, f0 + f1, n + 1;
   }
@@ -37,6 +38,7 @@ method fibFixed(n0: nat) returns (f0: nat)
 {
   var f1, n := 1, 0;
   f0 := 1;
+  //나중에 f1 이 뭔지 알수가 없음 그래서 정의해줘야됨
   while (n < n0)
     invariant n <= n0
     invariant f0 == ffn(n)
@@ -60,9 +62,11 @@ method multBroken(m: int, n: int) returns (r: int)
   while (x < n)
     invariant x <= n
     invariant r == x * m
+    //m이 없잔아
   {
     x := x + 1;
-    r := r + x;
+    //r := r + x;
+    r := r + m;
   }
 }
 

@@ -7,7 +7,10 @@ method multBroken(m: int, n: int) returns (r: int)
   ensures r == n * m
 {
   var x := 0;
-  r := m;
+  //r := m;
+  r := 0;
+  //시작할때 m == 0 * m 이니까 오류
+
   while (x < n)
     invariant x <= n
     invariant r == x * m
@@ -46,8 +49,11 @@ method countUpBroken(n: nat) returns (x: nat)
   ensures x == n
 {
   x := 0;
+  // 처음에 n = 5 라 치면 0 != 5 잔아 너무 강함
+  //invariant x == n
+
   while (x < n)
-    invariant x == n
+    invariant x <= n
   { x := x + 1; }
 }
 
@@ -83,6 +89,8 @@ method countUpFixed(n: nat) returns (x: nat)
 // hint: for which values of n is the invariant true when the loop
 //       is first reached?
 method upToBroken(n: int) returns (x: int)
+// int 라 n 이 음수일수 있음
+  requires n >= 0
   ensures x == n
 {
   x := 0;
