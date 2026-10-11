@@ -4,9 +4,9 @@
 function f(i : int) : int
 
 // calculates f(l) + f(l + 1) + ... f(h-1)
-function sum(l: int, h: int) : int
-  decreases h - l
-{ if h <= l then 0 else f(l) + sum(l+1, h) }
+function sum(lo: int, hi: int) : int
+  decreases hi - lo
+{ if hi <= lo then 0 else f(lo) + sum(lo+1, hi) }
 
 /* CANDIDATE B -- work still to do.  
    One trip round the loop is one unfolding of sum. */
@@ -16,7 +16,7 @@ method sum_loop(lo: int, hi: int) returns (s: int)
   var l, h := lo, hi;
   s := 0;
   while (l < h)
-    invariant true
+    invariant sum(lo,hi) == sum(l,h)
   {
     s := f(l) + s;
     l := l + 1;

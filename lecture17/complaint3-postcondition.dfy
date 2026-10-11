@@ -15,8 +15,10 @@ method countUpBroken(n: nat) returns (x: nat)
   ensures x == n
 {
   x := 0;
+  // dafny cannot prove the postcondition above
   while (x < n)
-    invariant true
+  //    invariant true
+  invariant x <= n
   { x := x + 1; }
 }
 
@@ -51,7 +53,9 @@ method multBroken(m: int, n: int) returns (r: int)
   var x := 0;
   r := 0;
   while (x < n)
+  //cannot prove above ensures
     invariant x <= n
+    invariant r == x * m  //add
   {
     x := x + 1;
     r := r + m;
@@ -92,12 +96,15 @@ method multFixed(m: int, n: int) returns (r: int)
 // Example 3
 // hint: how many times does the body run?
 method toFiftyBroken() returns (i: int)
-  ensures i == 51
+  ensures i == 50
 {
   i := 0;
-  while (i < 50)
+  while (i < 50) // it finished at i == 50 So change the ensures i == 50 or while(i < 51)
     invariant 0 <= i <= 51
   { i := i + 1; }
+  //assert !(i<50);
+  //assert 0 <= i <= 51;
+  //assert i == 50 || i > 50;
 }
 
 
