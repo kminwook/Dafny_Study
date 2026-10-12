@@ -30,8 +30,8 @@ method minMax(a : seq<int>) returns (mn:int, mx:int)
     var i := 1;
     while (i < |a|)
     invariant i <= |a|
-    invariant mn in a[..] && mx in a[..]
-    invariant forall j:nat :: j < i ==> mn <= a[j] <= mx
+    invariant mn in a[..i] && mx in a[..i]
+    invariant forall k:nat :: k < i ==> mn <= a[k] <= mx
     {
         if a[i] < mn { mn := a[i]; }
         if a[i] > mx { mx := a[i]; }
@@ -44,13 +44,13 @@ method minMax(a : seq<int>) returns (mn:int, mx:int)
    make all of its elements 0. The method header needs an addition
    (talk to your tutor), and the loop needs invariants */
 method zeroIt(a : array<int>)
-  modifies a
   ensures forall i :: 0 <= i < a.Length ==> a[i] == 0
+  modifies a
 {
   var i := 0;
   while i < a.Length 
-  invariant 0 <= i <= a.Length
-  invariant forall k:nat :: k < i ==> a[k] == 0
+  invariant i <= a.Length
+  invariant forall k : nat :: k < i ==> a[k] == 0
   { 
     a[i] := 0; 
     i := i + 1; 
@@ -76,13 +76,14 @@ function reverse<T>(s : seq<T>) : seq<T>
 lemma reverse_append<T>(s1:seq<T>, s2:seq<T>) 
   ensures reverse(s1 + s2) == reverse(s2) + reverse(s1)
 {
-  if (|s1| == 0) { 
+  if |s1| == 0 {
     assert s1 + s2 == s2;
-    }
-  else {
-    //assert(s1+s2)[1..] == s1[1..]+s2;
-    assert [s1[0]] + (s1[1..] + s2) == s1 + s2;
-    //assert reverse(s1 + s2) == reverse([s1[0]] + (s1[1..] + s2));
+  }else{
+    assert reverse(s1 + s2) == reverse((s1 + s2)[1..]) + [(s1 + s2)[0]];
+    //assert reverse(s1 + s2) == reverse(s1[1..] + s2) + [s1[0]] ;
+    // 윗줄에서 에러떠서 그거 해결
+    assert [s1[0]] + (s1[1..] + s2) ==  s1 + s2;
+
   }
 }
 
@@ -100,7 +101,7 @@ lemma reverse_append<T>(s1:seq<T>, s2:seq<T>)
    If you have the statement right, the proof should be automatic, just {} 
 */
 lemma reverseIndices<T>(s:seq<T>)
-  ensures forall i:nat :: i < |s| ==> reverse(s)[i] == s[|s| - i-1]
+  ensures forall i : nat :: i < |s|==> reverse(s)[i] == s[ |s| - i - 1]
 {
 }
 
@@ -110,12 +111,14 @@ lemma reverseIndices<T>(s:seq<T>)
    sequence */
 function sum(s:seq<int>) : int
 {
+  // this is deliberately bogus and breaks all the lemmas below...
   if s == [] then 0 else s[0] + sum(s[1..])
 }
 
 /* these results should follow */
 lemma sum123() ensures sum([1,2,3]) == 6 {}
 lemma sum_empty() ensures sum([]) == 0 {}
+
 
 /* Q6 */
 /* Prove the following. The empty s1 and non-empty s1 cases will need 
@@ -124,11 +127,12 @@ lemma sum_empty() ensures sum([]) == 0 {}
 lemma sumAppend(s1:seq<int>, s2:seq<int>)
   ensures sum(s1 + s2) == sum(s1) + sum(s2)
 {
-  if(|s1| == 0){
+  if |s1| == 0 {
     assert s1 + s2 == s2;
-  }else{
-    assert [s1[0]] + (s1[1..] + s2) == s1 + s2 ;
-    assert (s1+s2)[1..] == s1[1..] + s2;
+  } else{
+    //assert sum([s1[0]] + (s1[1..] + s2)) == sum(s1 + s2);
+    // 윗줄이 실패함
+    assert [s1[0]] + (s1[1..] + s2) == s1 + s2;
   }
 }
 
@@ -140,9 +144,10 @@ lemma sumReverse(s:seq<int>)
 {
   if |s| == 0 {
 
-  }else{
-    //assert reverse(s[1..]) + [s[0]] == reverse(s);
+  } else {
+    assert reverse(s[1..]) + [s[0]] == reverse(s);
     //assert sum(reverse(s[1..])) + sum([s[0]]) == sum(reverse(s[1..]) + [s[0]]);
+    //윗줄이 실패함
     sumAppend(reverse(s[1..]), [s[0]]);
   }
 }
