@@ -2,10 +2,10 @@
 
 method basics()
 {
-  var s : seq<int> := [3, 1, 4, 1, 5];
+  var s : seq<int> := [3, 1, 4, 1, 5 , 6];
   var n:nat :| n <= 5;
 
-  assert |s| == 5;
+  assert |s| == 6;
   assert s[0] == 3;
   assert s[4] == 5;
 
@@ -15,12 +15,12 @@ method basics()
      (1..3) vs [1..3] vs (1..3] */
   assert s[1..3] == [1, 4];
   assert s[..2] == [3, 1];
-  // assert s[3..] == ??;
+  assert s[3..] == [1,5,6];
   assert s[..] == s;
   assert s[..2] + s[2..] == s;
-  // assert |s[..2]| == ??
-  // assert |s[..n]| == ??
-  // assert [1,2,3][1] == ??;
+  assert |s[..2]| == 2;
+  assert |s[..n]| == n;
+  assert [1,2,3][1] == 2;
   assert forall t : seq<int> :: t[..|t|] == t;
 
   /* lots of ways for these to go wrong; with

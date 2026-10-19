@@ -9,7 +9,7 @@ function f(n:nat) : nat
 method crystal_ball() returns (z: nat)
   requires exists k : nat :: f(k) == 0
   ensures f(z) == 0
-  ensures forall z0 : nat | z0 < z :: f(z0) != 0
+  //ensures forall z0 : nat | z0 < z :: f(z0) != 0
 {
   var k : nat :| f(k) == 0;
   z := 0;

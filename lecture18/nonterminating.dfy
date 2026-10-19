@@ -27,5 +27,6 @@ method ff()
   decreases *
   ensures false
 {
+  nt();
   while true decreases * { }
 }

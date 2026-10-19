@@ -20,6 +20,9 @@ method sum_loop(lo: int, hi: int) returns (s: int)
     invariant s + sum(l,hi) == sum(lo,hi)
   {
     s := f(l) + s;
+    //now we have s == sum(lo,l) + f(l)
+    
+    
     l := l + 1;
   }
 }

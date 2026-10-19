@@ -11,8 +11,15 @@ method findZero(n: nat) returns (found: bool)
   var i: nat := 0;
   found := false;
   while (i < n && !found)
+    decreases n-i + b2n(!found)
+    invariant found ==> f(i) == 0 && i < n
+    invariant !found ==> forall j :: 0 <= j < i ==> f(j) != 0
+    invariant i <= n
   {
-    if f(i) == 0 { found := true; } else { i := i + 1; }
+    if f(i) == 0 { 
+      found := true; 
+      //assert exists j :: 0 <= j && f(j) == 0;
+      } else { i := i + 1;}
     // "early exit" via a found flag is a bit gross.
     // See below for alternative with break keyword.
   }
@@ -37,6 +44,7 @@ method findZero_with_break(n:nat) returns (found:bool)
   var c := 0;
   found := false;
   while c < n 
+    invariant found <==> exists j : nat | j < c :: f(j) == 0
   {
     if f(c) == 0 { 
       found := true; 
