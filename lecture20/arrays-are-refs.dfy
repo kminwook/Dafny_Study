@@ -15,8 +15,10 @@ method aliasing()
 
 method equality(c : array<int>)
 {
-  var a : array<int> := new int[3]; a[0], a[1], a[2] := 0, 1, 10;
-  var b : array<int> := new int[3]; b[0], b[1], b[2] := 0, 1, 10;
+  var a : array<int> := new int[3]; 
+  a[0], a[1], a[2] := 0, 1, 10;
+  var b : array<int> := new int[3]; 
+  b[0], b[1], b[2] := 0, 1, 10;
   assert a != b;                /* same contents, different arrays */
   assert a[..] == b[..];        /* ... but the same contents */
   b[2] := 11;

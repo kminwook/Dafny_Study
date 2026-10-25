@@ -31,15 +31,22 @@ method basics()
   assert [1,2] + [3] == [1,2,3];
   assert 4 in s;
   assert 7 !in s;
+  assert !(7 in s);
 
   /* update makes a NEW sequence */
   var t := s;
   s := s[0 := 99];
   assert t[0] == 3;
   assert s[0] == 99;
+  s := [1,2,3];
+  assert s[0] == 1;
+  assert |t| == 6;
+  assert |s| == 3;
+
+
 
   /* multisets forget order but not multiplicity */
-  assert multiset([3,1,4,1,5]) == multiset([1,1,3,4,5]);
+  assert multiset([3,1,4,1,5]) == multiset([1,1,3,4,5]) == multiset([1,3,1,5,4]);
   assert multiset([1,1]) != multiset([1]);
 
   // multisets can be written with { }, and compared with
@@ -49,9 +56,13 @@ method basics()
 
 method lenPlusOne<T>(s : seq<T>) returns (n:nat)
   ensures n == |s| + 1
+  ensures n == lenPlusOneF(s)
 {
    return |s| + 1;
 }
+
+function lenPlusOneF<T>(s:seq<T>) : nat
+{ |s| + 1 }
 
 method msLen<T>(ms : multiset<T>) returns (n:nat)
   ensures n == |ms| + 1

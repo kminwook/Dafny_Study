@@ -12,6 +12,7 @@ method nuke0(a: array<int>) returns (i:int)
 method nuke1(a: array<int>, b: array<int>)
   requires a.Length > 1 && b.Length > 1
   modifies a
+  modifies b
 {
   if a == b { 
     b[1] := 0;      /* legal: here b IS a */
@@ -41,7 +42,7 @@ method nuke1(a: array<int>, b: array<int>)
   var c : array<int> := new int[20];
   c[1] := 42;                  /* legal: c is fresh */
   c := b; 
-  //c[0] := 7;                 /* ILLEGAL: b is not in modifies */
+  c[0] := 7;                 /* ILLEGAL: b is not in modifies */
 }
 
 /* reads, for functions and predicates that look at the heap */

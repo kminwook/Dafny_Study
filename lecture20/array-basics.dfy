@@ -3,11 +3,11 @@
 method basics(n:nat)
   requires 12 <= n < 20
 {
-  var a : array<int> := new int[20];
+  var a : array<int> := new int[n];
   a[0] := 12;
   var a0 : int := 12;
-  a[12] := 12;
-  assert a.Length == 20;
+  a[11] := 12;
+  assert a.Length == n;
   assert a[0] == 12 && a0 == 12;
 
   /* in place: no new array is made */

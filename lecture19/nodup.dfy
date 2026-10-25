@@ -7,6 +7,11 @@ predicate dup_free(a: seq<int>)
 predicate sorted(a: seq<int>)
 { forall i, j :: 0 <= i < j < |a| ==> a[i] <= a[j] }
 
+predicate sortedprime(a:seq<int>)
+{forall i | 0 <= i < |a| -1 :: a[i] <= a[i+1]}
+
+
+
 /* The easy case: sorted, so any duplicates are adjacent. */
 method nodup_srt_incomplete(a: seq<int>) returns (b: bool)
   requires sorted(a)
@@ -18,10 +23,13 @@ method nodup_srt_incomplete(a: seq<int>) returns (b: bool)
     // m counts down from the top of the sequence;
     // what do we know about the slice of the sequence
     // that we have looked at so far?
+    invariant dup_free(a[m..]) 
   {
     if a[m-1] == a[m] { return false; }
     m := m - 1;
   }
+  assert m == 0;
+  assert dup_free(a);
   return true;
 }
 
@@ -57,15 +65,27 @@ method nodup_incomplete(a: seq<int>) returns (b: bool)
   while m < |a| - 1 
     // stop one short of end to be able to compare with 
     // the very last element
+    invariant m <= |a| - 1
+    //invariant dup_free(a[..m+1]) 
+    invariant forall i: nat | i <  m ==> a[i] !in a[i+1..]
+  
   {
     var n : nat := m + 1;
     while n < |a|
+      invariant m < n <= |a|
+      invariant dup_free(a[..m+1])
+      invariant forall i :: m < i < n ==> a[i] != a[m]
+      invariant a[m] !in a[m+1..n]
     {
       if a[n] == a[m] { return false; }
       n := n + 1;
     }
+    assert n == |a|;
+    
     m := m + 1;
   }
+  assert m == |a| - 1 ;
+  assert dup_free(a);
   return true;
 }
 

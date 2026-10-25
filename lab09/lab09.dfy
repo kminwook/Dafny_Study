@@ -102,6 +102,9 @@ method prefixSum(a : array<int>)
     if a.Length == 0 { return ; }
     var i := 1;
     while i < a.Length 
+      invariant i <= a.Length
+      invariant forall k : nat :: k < i ==> a[k] == sum(old(a[..k+1]))
+      invariant forall j : nat :: i <= j < a.Length ==> a[j] == old(a[j])
     {
       a[i] := a[i] + a[i-1];
       sumRight(old(a[..]), i);

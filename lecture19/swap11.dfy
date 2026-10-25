@@ -44,6 +44,7 @@ method swap11_incomplete(s1: seq<nat>) returns (s: seq<nat>, changed: bool)
   // and the caller below needs to know it: a method is opaque, so
   // whatever progress this makes has to be said in an ensures clause.
   // ensures <SOMETHING_SENSIBLE>
+  ensures changed ==> noofs(1,s) < noofs(1,s1)
 {
   var i: nat := 0;
   s := s1;
@@ -65,6 +66,7 @@ method swap11s_incomplete(s1: seq<nat>) returns (s: seq<nat>)
   var changed : bool := true;
   s := s1;
   while (changed)
+    decreases changed, noofs(1,s)
     // and what did the call below just promise us?
   { s, changed := swap11_incomplete(s); }
 }

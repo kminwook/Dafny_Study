@@ -3,7 +3,7 @@
 
 method find_max_incomplete(a: seq<int>) returns (m: int)
   requires |a| >= 1
-  ensures forall j | 0 <= j < |a| :: a[j] <= m
+  ensures forall j :: 0 <= j < |a| ==> a[j] <= m
   ensures exists j | 0 <= j < |a| :: a[j] == m
 {
   var i := 1;
@@ -12,10 +12,15 @@ method find_max_incomplete(a: seq<int>) returns (m: int)
     // two ensures clauses, and each has a job to do in here as well.
     // what is true of the part of a we have looked at SO FAR?
     // (and how do we know, at the end, that "so far" is all of it?)
+    invariant i <= |a|
+    invariant forall j :: 0 <= j < i ==> a[j] <= m
+    invariant exists j | 0 <= j < |a| :: a[j] == m
+    //decreases |a| - i
   {
     if a[i] >= m { m := a[i]; }
     i := i + 1;
   }
+  assert i >= |a|;
 }
 
 
