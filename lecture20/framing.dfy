@@ -12,7 +12,7 @@ method nuke0(a: array<int>) returns (i:int)
 method nuke1(a: array<int>, b: array<int>)
   requires a.Length > 1 && b.Length > 1
   modifies a
-  modifies b
+ modifies b
 {
   if a == b { 
     b[1] := 0;      /* legal: here b IS a */

@@ -8,13 +8,28 @@ method cmp_swp_incomplete(a: array<int>, i: int, j: int)
   requires 0 <= i < j < a.Length
   modifies a
   ensures a[i] <= a[j]
+  ensures a[i] == old(a[j]) || a[i] == old(a[i])
+  ensures a[j] == old(a[i]) || a[j] == old(a[j])
+  ensures multiset(a[..]) == multiset(old(a[..]))
   // what ELSE do we want to promise?  two sorts of answer:
   //   - something about the two elements we touched, and
   //   - something about the array as a whole.
   // (the second one is the one that will scale to sorting)
 {
   if (a[i] > a[j]) { a[i], a[j] := a[j], a[i]; }
-  /* 
+  /*
+  var c0 := 0;
+  while c0 < a.Length
+   invariant a[i] == old(a[j]) || a[i] == old(a[i])
+   invariant a[j] == old(a[i]) || a[j] == old(a[j])
+   invariant a[i] <= a[j]
+  {
+    if c0 != i && c0 != j{ a[c0] := 0;}
+    c0 := c0 + 1;  
+  }
+
+*/
+  /*
   var c := 0;
   while c < a.Length 
     invariant c <= a.Length
@@ -23,6 +38,17 @@ method cmp_swp_incomplete(a: array<int>, i: int, j: int)
   */
 }
 
+method testit(){
+  var a := new int[3];
+  a[0] := 10; a[1] := 5; a[2]:= 6;
+  assert a[..] == [10,5,6];
+  cmp_swp_incomplete(a,0,1);
+  print "output =", a[..] , "\n";
+}
+
+method Main(){
+  testit();
+}
 
 
 
