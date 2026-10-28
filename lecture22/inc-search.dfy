@@ -2,15 +2,19 @@
    Ported from COMP1600 2025, week10-code.dfy (inc_search). */
 
 /* weak sauce spec.: should return more than just bool, right? */
-method inc_search_incomplete(f: int -> int, lo: int, hi: int, k: int)
-    returns (b: bool)
+method inc_search_incomplete(f: int -> int, lo: int, hi: int, k: int)returns (b: bool)
   requires forall i, j : int :: i < j ==> f(i) < f(j)
   ensures b <==> exists i : int :: lo <= i < hi && f(i) == k
 {
   var l := lo;
   var h := hi;
   if (k < f(l) || k > f(h-1)) { return false; }
+  assert f(l) <= k && f(h-1) >= k;
   while (h - l > 0)
+    decreases h-l
+    invariant f(l-1) < k
+    invariant f(h) > k
+
     // l and h are the window.  the invariant has to say that if the
     // answer exists at all, it is still inside the window --
     // which, since f is increasing, is two facts about f at the edges.

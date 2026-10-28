@@ -15,6 +15,10 @@ method find_incomplete(a: array<int>, elem: int) returns (idx: nat)
 {
   var lo, hi := 0, a.Length;
   while (lo < hi)
+    invariant lo <= hi <= a.Length
+    invariant forall i:nat | i < lo :: a[i] <  elem
+    invariant forall j:nat | hi <= j < a.Length :: elem <= a[j]
+
     // during the loop there is no idx -- there is lo and there is hi.
     // rewrite each postcondition in terms of one of them.
     // what is the third, boring, invariant that makes them meet?

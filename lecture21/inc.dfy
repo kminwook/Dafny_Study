@@ -8,16 +8,18 @@ method inc_incomplete(a: array<int>)
   modifies a
   ensures forall i:nat | i < a.Length :: a[i] == old(a[i]) + 1
 {
-  var i := 0;
+  var i: nat := 0;
   while (i < a.Length)
-    invariant 0 <= i <= a.Length
+    invariant i <= a.Length
     invariant forall j:nat | j < i :: a[j] == old(a[j]) + 1
+    //invariant forall j : nat | i <= j < a.Length :: a[j] == old(a[j])
     // the same recipe as level 1's ‘zero’`, but it is not enough.
     // read the complaint: which of the three questions failed?
     // then ask what we need to know about a[i] JUST BEFORE we
     // increment it -- and who was supposed to tell us.
   {
     a[i] := a[i] + 1;
+    // assert forall j : nat | j < i + 1 :: a[j] == old(a[j]) + 1; 
     i := i + 1;
   }
 }
@@ -39,6 +41,7 @@ method inc(a: array<int>)
   ensures forall i:nat | i < a.Length :: a[i] == old(a[i]) + 1
 {
   var i:nat := 0;
+  var s: seq<int> := a[..];
   while i < a.Length
     invariant i <= a.Length
     invariant forall j:nat | j < i :: a[j] == old(a[j]) + 1

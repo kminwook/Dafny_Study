@@ -7,6 +7,7 @@ method zero_incomplete(a: array<int>)
 {
   var i : int := 0;
   while (i < a.Length)
+  
     // the postcondition talks about the whole array.
     // in here we have only got as far as i ...
   {
@@ -14,11 +15,6 @@ method zero_incomplete(a: array<int>)
     i := i + 1;
   }
 }
-
-
-
-
-
 
 
 
